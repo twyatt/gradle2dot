@@ -44,7 +44,7 @@ fun processDirectory(directory: File): List<Dependency> {
         .flatten()
 }
 
-private val projectDependencyRegex = ".*(\\w*)(implementation|api|compile) project\\(['\"]+:(\\w+)['\"]\\).*"
+private val projectDependencyRegex = ".*(\\w*)(implementation|api|compile) project\\(['\"]+:([\\w-]+)['\"]\\).*"
     .toRegex(RegexOption.IGNORE_CASE)
 
 data class Dependency(val parent: String, val variant: String?, val transitivity: String, val name: String)
