@@ -14,6 +14,12 @@ group 'gradle2dot'
 version '1.0'
 
 apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'MainKt'
+
+// https://stackoverflow.com/a/23689696
+run.args System.getProperty("exec.args", "").split()
 
 repositories {
     jcenter()
