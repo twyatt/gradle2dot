@@ -32,6 +32,7 @@ fun OutputStreamWriter.writeDependencies(dependencies: List<Dependency>) {
 fun processDirectory(directory: File): List<Dependency> {
     val modules = File("$directory/settings.gradle")
         .readLines()
+        .filter { line -> line.startsWith("include") }
         .map { line ->
             line.removePrefix("include").trim('"', '\'', ':', ' ')
         }
